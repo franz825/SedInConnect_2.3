@@ -48,10 +48,10 @@ NECESSARY IMPORTS
 --------------------------------------
 """
 import sys, os
-from time import clock, time, sleep
+from time import time, sleep
 import time
-import Tkinter as Tk
-import tkMessageBox
+import tkinter as Tk
+import tkinter.messagebox
 import easygui
 from easygui import *
 import osgeo
@@ -112,10 +112,10 @@ class Connectivity_gui(QtGui.QMainWindow):
         #
         # Opening Messages
         if tif is None:
-          print time.strftime("%d/%m/%Y %H:%M:%S    "),"couldn't open input DTM dataset"
+          print(time.strftime("%d/%m/%Y %H:%M:%"    ),"couldn't open input DTM dataset")
           sys.exit(1)
         else:
-          print time.strftime("%d/%m/%Y %H:%M:%S    "),"opening DTM for sinks was successful!"
+          print(time.strftime("%d/%m/%Y %H:%M:%S    "),"opening DTM for sinks was successful!")
         #
         #Colonne, righe, bande
         cols = tif.RasterXSize
@@ -159,10 +159,10 @@ class Connectivity_gui(QtGui.QMainWindow):
         #reclassifying D8 flow directions
         tif_fdir8=osgeo.gdal.Open(filename[0:-4]+"p.tif")#opening the flowdir file (1 band, bit not specified, but usually 32)
         if tif_fdir8 is None:
-          print time.strftime("%d/%m/%Y %H:%M:%S    "),"couldn't open input dir8 dataset"
+          print(time.strftime("%d/%m/%Y %H:%M:%S    "),"couldn't open input dir8 dataset")
           sys.exit(1)
         else:
-          print time.strftime("%d/%m/%Y %H:%M:%S    "),"Flowdir opening was successful!"
+          print(time.strftime("%d/%m/%Y %H:%M:%S    "),"Flowdir opening was successful!")
         #Array 
         tif_fdir8_ar=tif_fdir8.ReadAsArray()
         tif_fdir8_ar=tif_fdir8_ar.astype(numpy.float)
@@ -174,10 +174,10 @@ class Connectivity_gui(QtGui.QMainWindow):
         #
         tif_sd8=osgeo.gdal.Open(filename[0:-4]+"sd8.tif")#opening the flowdir file (1 band, bit not specified, but usually 32)
         if tif_sd8 is None:
-          print time.strftime("%d/%m/%Y %H:%M:%S    "),"couldn't open input sd8 dataset"
+          print(time.strftime("%d/%m/%Y %H:%M:%S    "),"couldn't open input sd8 dataset")
           sys.exit(1)
         else:
-          print time.strftime("%d/%m/%Y %H:%M:%S    "),"Sd8 opening was successful!"
+          print(time.strftime("%d/%m/%Y %H:%M:%S    "),"Sd8 opening was successful!")
         #Array 
         tif_sd8_ar=tif_sd8.ReadAsArray()
         tif_sd8_ar=tif_sd8_ar.astype(numpy.float)
@@ -195,10 +195,10 @@ class Connectivity_gui(QtGui.QMainWindow):
         #
         tif_dirinf=osgeo.gdal.Open(filename[0:-4]+"ang.tif")#opening the flowdir file (1 band, bit not specified, but usually 32)
         if tif_dirinf is None:
-          print time.strftime("%d/%m/%Y %H:%M:%S    "),"couldn't open input dirinf dataset"
+          print(time.strftime("%d/%m/%Y %H:%M:%S    "),"couldn't open input dirinf dataset")
           sys.exit(1)
         else:
-          print time.strftime("%d/%m/%Y %H:%M:%S    "),"Dirinf opening was successful!"
+          print(time.strftime("%d/%m/%Y %H:%M:%S    "),"Dirinf opening was successful!")
         #Array 
         tif_dirinf_ar=tif_dirinf.ReadAsArray()
         tif_dirinf_ar=tif_dirinf_ar.astype(numpy.float)
@@ -223,7 +223,7 @@ class Connectivity_gui(QtGui.QMainWindow):
         #DOING THE PROCEDURE
         #Let's go for the search and algo-rhytm for the weighted-Flow-Length
         #
-        start = clock()#take your time
+        start = time.clock()#take your time
         #
         print (msg_sk)
         #
@@ -410,7 +410,7 @@ class Connectivity_gui(QtGui.QMainWindow):
         #
         #
         elapsed=(clock()-start)#computational time
-        print time.strftime("%d/%m/%Y %H:%M:%S    "),"Process concluded succesfully \n","%.2f" % elapsed,'seconds for sink watersheds calculation with ',int(count),' iterations' #truncating the precision
+        print(time.strftime("%d/%m/%Y %H:%M:%S    "),"Process concluded succesfully \n","%.2f" % elapsed,'seconds for sink watersheds calculation with ',int(count),' iterations') #truncating the precision
         #os.system("pause")
         #
         del Fdir8
@@ -658,10 +658,10 @@ class Connectivity_gui(QtGui.QMainWindow):
         #
         # Opening Messages
         if tif is None:
-          print time.strftime("%d/%m/%Y %H:%M:%S    "), "couldn't open input dataset (connectivity main DTM)"
+          print (time.strftime("%d/%m/%Y %H:%M:%S    "), "couldn't open input dataset (connectivity main DTM)")
           sys.exit(1)
         else:
-          print time.strftime("%d/%m/%Y %H:%M:%S    "), "opening DTM for Connectivity was successful!"
+          print (time.strftime("%d/%m/%Y %H:%M:%S    "), "opening DTM for Connectivity was successful!")
         #
         #Colonne, righe, bande
         cols = tif.RasterXSize
@@ -697,10 +697,10 @@ class Connectivity_gui(QtGui.QMainWindow):
             """    
             tif_fdir8=osgeo.gdal.Open(filename[0:-4]+"p.tif")#opening the file (1 band, bit not specified, but usually 32)
             if tif_fdir8 is None:
-              print time.strftime("%d/%m/%Y %H:%M:%S    "), "couldn't open input fd8 dataset"
+              print (time.strftime("%d/%m/%Y %H:%M:%S    "), "couldn't open input fd8 dataset")
               sys.exit(1)
             else:
-              print time.strftime("%d/%m/%Y %H:%M:%S    "), "opening fd8 was successful!"
+              print (time.strftime("%d/%m/%Y %H:%M:%S    "), "opening fd8 was successful!")
             #Array 
             tif_fdir8_ar=tif_fdir8.ReadAsArray()
             tif_fdir8_ar=tif_fdir8_ar.astype(numpy.float)#otherwise overflow in future operations
@@ -718,10 +718,10 @@ class Connectivity_gui(QtGui.QMainWindow):
             #Slope D8 file modifications
             tif_sd8=osgeo.gdal.Open(filename[0:-4]+"sd8.tif")#opening the file (1 band, bit not specified, but usually 32)
             if tif_sd8 is None:
-              print time.strftime("%d/%m/%Y %H:%M:%S    "), "couldn't open input sd8 dataset"
+              print (time.strftime("%d/%m/%Y %H:%M:%S    "), "couldn't open input sd8 dataset")
               sys.exit(1)
             else:
-              print time.strftime("%d/%m/%Y %H:%M:%S    "),"opening sd8 was successful!"
+              print (time.strftime("%d/%m/%Y %H:%M:%S    "),"opening sd8 was successful!")
             #Array 
             tif_sd8_ar=tif_sd8.ReadAsArray()
             del(tif_sd8)
@@ -730,10 +730,10 @@ class Connectivity_gui(QtGui.QMainWindow):
             sink_dir8 = str(sink_dir8)
             tif_fdir8=osgeo.gdal.Open(sink_dir8)#opening the file (1 band, bit not specified, but usually 32)
             if tif_fdir8 is None:
-              print time.strftime("%d/%m/%Y %H:%M:%S    "), "couldn't open input sk_fd8 dataset"
+              print (time.strftime("%d/%m/%Y %H:%M:%S    "), "couldn't open input sk_fd8 dataset")
               sys.exit(1)
             else:
-              print time.strftime("%d/%m/%Y %H:%M:%S    "), "opening sk_fd8 was successful!"
+              print (time.strftime("%d/%m/%Y %H:%M:%S    "), "opening sk_fd8 was successful!")
             #Array 
             tif_fdir8_ar=tif_fdir8.ReadAsArray()
             tif_fdir8_ar=tif_fdir8_ar.astype(numpy.float)#otherwise overflow in future operations
@@ -747,10 +747,10 @@ class Connectivity_gui(QtGui.QMainWindow):
             sink_sd8 = str(sink_sd8)
             tif_sd8=osgeo.gdal.Open(sink_sd8)
             if tif_sd8 is None:
-              print time.strftime("%d/%m/%Y %H:%M:%S    "),"couldn't open input sk_sd8 dataset"
+              print (time.strftime("%d/%m/%Y %H:%M:%S    "),"couldn't open input sk_sd8 dataset")
               sys.exit(1)
             else:
-              print time.strftime("%d/%m/%Y %H:%M:%S    "),"opening sk_sd8 was successful!"
+              print (time.strftime("%d/%m/%Y %H:%M:%S    "),"opening sk_sd8 was successful!")
             #Array 
             tif_sd8_ar=tif_sd8.ReadAsArray()
             del(tif_sd8)
@@ -782,10 +782,10 @@ class Connectivity_gui(QtGui.QMainWindow):
         #
         # Opening Messages
         if tif_wgt is None:
-          print time.strftime("%d/%m/%Y %H:%M:%S    "), "couldn't open input weight dataset"
+          print (time.strftime("%d/%m/%Y %H:%M:%S    "), "couldn't open input weight dataset")
           sys.exit(1)
         else:
-          print time.strftime("%d/%m/%Y %H:%M:%S    "), "opening Weight was successful!"
+          print (time.strftime("%d/%m/%Y %H:%M:%S    "), "opening Weight was successful!")
         
         #Wgt factor matrix
         tif_wgt_ar=tif_wgt.ReadAsArray()
@@ -1021,7 +1021,7 @@ class Connectivity_gui(QtGui.QMainWindow):
         #
         #
         elapsed=(clock()-start)#computational time
-        print time.strftime("%d/%m/%Y %H:%M:%S    "), "Process concluded succesfully \n","%.2f" % elapsed,'seconds for Weighted-Flow Length calculation with ',int(count),' iterations' #truncating the precision
+        print (time.strftime("%d/%m/%Y %H:%M:%S    "), "Process concluded succesfully \n","%.2f" % elapsed,'seconds for Weighted-Flow Length calculation with ',int(count),' iterations') #truncating the precision
         #os.system("pause")
         #
         #
@@ -1057,10 +1057,10 @@ class Connectivity_gui(QtGui.QMainWindow):
         #dtmfilloksca file modifications--> conversion to array for manipulations
         tif_dtmsca=osgeo.gdal.Open(filename[0:-4]+"sca.tif")#opening the file (1 band, bit not specified, but usually 32)
         if tif_dtmsca is None:
-          print time.strftime("%d/%m/%Y %H:%M:%S    "), "couldn't open input dtmsca dataset"
+          print (time.strftime("%d/%m/%Y %H:%M:%S    "), "couldn't open input dtmsca dataset")
           sys.exit(1)
         else:
-          print time.strftime("%d/%m/%Y %H:%M:%S    "), "opening dtmsca was successful!"
+          print (time.strftime("%d/%m/%Y %H:%M:%S    "), "opening dtmsca was successful!")
         #Array 
         tif_sca_ar=tif_dtmsca.ReadAsArray()
         del(tif_dtmsca)
@@ -1075,10 +1075,10 @@ class Connectivity_gui(QtGui.QMainWindow):
         #
         acc_W=osgeo.gdal.Open(dir_path+"/accW.tif")#opening the file (1 band, bit not specified, but usually 32)
         if acc_W is None:
-          print time.strftime("%d/%m/%Y %H:%M:%S    "), "couldn't open input acc_W dataset"
+          print (time.strftime("%d/%m/%Y %H:%M:%S    "), "couldn't open input acc_W dataset")
           sys.exit(1)
         else:
-          print time.strftime("%d/%m/%Y %H:%M:%S    "), "opening acc_W was successful!"
+          print (time.strftime("%d/%m/%Y %H:%M:%S    "), "opening acc_W was successful!")
         #Array 
         acc_W_ar=acc_W.ReadAsArray()
         del(acc_W)
@@ -1089,10 +1089,10 @@ class Connectivity_gui(QtGui.QMainWindow):
         #
         acc_S=osgeo.gdal.Open(dir_path+"/accS.tif")#opening the file (1 band, bit not specified, but usually 32)
         if acc_S is None:
-          print time.strftime("%d/%m/%Y %H:%M:%S    "), "couldn't open input acc_S dataset"
+          print (time.strftime("%d/%m/%Y %H:%M:%S    "), "couldn't open input acc_S dataset")
           sys.exit(1)
         else:
-          print time.strftime("%d/%m/%Y %H:%M:%S    "), "opening acc_S was successful!"
+          print (time.strftime("%d/%m/%Y %H:%M:%S    "), "opening acc_S was successful!")
         #Array 
         acc_S_ar=acc_S.ReadAsArray()
         del(acc_S)
@@ -1175,7 +1175,7 @@ class Connectivity_gui(QtGui.QMainWindow):
         dst_ic_ds=None#Sometimes I add this to ensure the file is fully deallocated, and to prevent running into some gotchas:
         del dst_ic_ds
         #
-        print time.strftime("%d/%m/%Y %H:%M:%S    "), "Calculation finished!, Compliments!"
+        print (time.strftime("%d/%m/%Y %H:%M:%S    "), "Calculation finished!, Compliments!")
         #END?....YUPPY!!!!!
         #
         # Figure
@@ -1220,10 +1220,10 @@ class Connectivity_gui(QtGui.QMainWindow):
         #
         # Opening Messages
         if tif is None:
-          print time.strftime("%d/%m/%Y %H:%M:%S    "), "couldn't open input DTM dataset (Connectivity to targets)"
+          print (time.strftime("%d/%m/%Y %H:%M:%S    "), "couldn't open input DTM dataset (Connectivity to targets)")
           sys.exit(1)
         else:
-          print time.strftime("%d/%m/%Y %H:%M:%S    "), "opening DTM (Connectivity to targets) was successful!"
+          print (time.strftime("%d/%m/%Y %H:%M:%S    "), "opening DTM (Connectivity to targets) was successful!")
         #
         #Colonne, righe, bande
         cols = tif.RasterXSize
@@ -1301,10 +1301,10 @@ class Connectivity_gui(QtGui.QMainWindow):
         #opening D8 flow directions
         tif_fdir8=osgeo.gdal.Open(filename[0:-4]+"p.tif")#opening the file (1 band, bit not specified, but usually 32)
         if tif_fdir8 is None:
-          print time.strftime("%d/%m/%Y %H:%M:%S    "), "couldn't open input fdir_8 dataset"
+          print (time.strftime("%d/%m/%Y %H:%M:%S    "), "couldn't open input fdir_8 dataset")
           sys.exit(1)
         else:
-          print time.strftime("%d/%m/%Y %H:%M:%S    "), "opening fdir_8 was successful!"
+          print (time.strftime("%d/%m/%Y %H:%M:%S    "), "opening fdir_8 was successful!")
         #Array 
         tif_fdir8_ar=tif_fdir8.ReadAsArray()
         tif_fdir8_ar=tif_fdir8_ar.astype(numpy.float)
@@ -1317,10 +1317,10 @@ class Connectivity_gui(QtGui.QMainWindow):
         #opening Dinf flow directions
         tif_fdirinf=osgeo.gdal.Open(filename[0:-4]+"angt.tif")#opening the file (1 band, bit not specified, but usually 32)
         if tif_fdirinf is None:
-          print time.strftime("%d/%m/%Y %H:%M:%S    "),"couldn't open input dirinf_tg dataset"
+          print (time.strftime("%d/%m/%Y %H:%M:%S    "),"couldn't open input dirinf_tg dataset")
           sys.exit(1)
         else:
-          print time.strftime("%d/%m/%Y %H:%M:%S    "),"opening dirinf_tg was successful!"
+          print (time.strftime("%d/%m/%Y %H:%M:%S    "),"opening dirinf_tg was successful!")
         #Array 
         tif_fdirinf_ar=tif_fdirinf.ReadAsArray()
         ndv=numpy.min(tif_fdirinf_ar)
@@ -1344,10 +1344,10 @@ class Connectivity_gui(QtGui.QMainWindow):
         #Slope D8 file modifications
         tif_sd8=osgeo.gdal.Open(filename[0:-4]+"sd8.tif")#opening the file (1 band, bit not specified, but usually 32)
         if tif_sd8 is None:
-          print time.strftime("%d/%m/%Y %H:%M:%S    "),"couldn't open input sd8 dataset"
+          print (time.strftime("%d/%m/%Y %H:%M:%S    "),"couldn't open input sd8 dataset")
           sys.exit(1)
         else:
-          print time.strftime("%d/%m/%Y %H:%M:%S    "),"opening sd8 was successful!"
+          print (time.strftime("%d/%m/%Y %H:%M:%S    "),"opening sd8 was successful!")
         #Array 
         tif_sd8_ar=tif_sd8.ReadAsArray()
         del (tif_sd8)
@@ -1372,10 +1372,10 @@ class Connectivity_gui(QtGui.QMainWindow):
         #
         # Opening Messages
         if tif_wgt is None:
-          print time.strftime("%d/%m/%Y %H:%M:%S    "),"couldn't open input Weight dataset"
+          print (time.strftime("%d/%m/%Y %H:%M:%S    "),"couldn't open input Weight dataset")
           sys.exit(1)
         else:
-          print time.strftime("%d/%m/%Y %H:%M:%S    "),"opening Weight was successful!"
+          print (time.strftime("%d/%m/%Y %H:%M:%S    "),"opening Weight was successful!")
         
         #Wgt factor matrix
         tif_wgt_ar=tif_wgt.ReadAsArray()
@@ -1609,7 +1609,7 @@ class Connectivity_gui(QtGui.QMainWindow):
         #
         #
         elapsed=(clock()-start)#computational time
-        print time.strftime("%d/%m/%Y %H:%M:%S    "), "Process concluded succesfully \n","%.2f" % elapsed,'seconds for Weighted-Flow Length calculation with ',int(count),' iterations' #truncating the precision
+        print (time.strftime("%d/%m/%Y %H:%M:%S    "), "Process concluded succesfully \n","%.2f" % elapsed,'seconds for Weighted-Flow Length calculation with ',int(count),' iterations') #truncating the precision
         #os.system("pause")
         #
         #
@@ -1646,10 +1646,10 @@ class Connectivity_gui(QtGui.QMainWindow):
         #dtmfilloksca file modifications--> conversion to array for manipulations
         tif_dtmsca=osgeo.gdal.Open(filename[0:-4]+"sca.tif")#opening the file (1 band, bit not specified, but usually 32)
         if tif_dtmsca is None:
-          print time.strftime("%d/%m/%Y %H:%M:%S    "),"couldn't open input tif_dtmsca dataset"
+          print (time.strftime("%d/%m/%Y %H:%M:%S    "),"couldn't open input tif_dtmsca dataset")
           sys.exit(1)
         else:
-          print time.strftime("%d/%m/%Y %H:%M:%S    "), "opening tif_dtmsca was successful!"
+          print (time.strftime("%d/%m/%Y %H:%M:%S    "), "opening tif_dtmsca was successful!")
         #Array 
         tif_sca_ar=tif_dtmsca.ReadAsArray()
         #
@@ -1661,10 +1661,10 @@ class Connectivity_gui(QtGui.QMainWindow):
         #
         acc_W=osgeo.gdal.Open(dir_path+"/accW.tif")#opening the file (1 band, bit not specified, but usually 32)
         if tif_dtmsca is None:
-          print time.strftime("%d/%m/%Y %H:%M:%S    "),"couldn't open input acc_W dataset"
+          print (time.strftime("%d/%m/%Y %H:%M:%S    "),"couldn't open input acc_W dataset")
           sys.exit(1)
         else:
-          print time.strftime("%d/%m/%Y %H:%M:%S    "),"opening acc_W was successful!"
+          print (time.strftime("%d/%m/%Y %H:%M:%S    "),"opening acc_W was successful!")
         #Array 
         acc_W_ar=acc_W.ReadAsArray()
         del(acc_W)
@@ -1675,10 +1675,10 @@ class Connectivity_gui(QtGui.QMainWindow):
         #
         acc_S=osgeo.gdal.Open(dir_path+"/accS.tif")#opening the file (1 band, bit not specified, but usually 32)
         if tif_dtmsca is None:
-          print time.strftime("%d/%m/%Y %H:%M:%S    "),"couldn't open input acc_S dataset"
+          print (time.strftime("%d/%m/%Y %H:%M:%S    "),"couldn't open input acc_S dataset")
           sys.exit(1)
         else:
-          print time.strftime("%d/%m/%Y %H:%M:%S    "),"opening acc_S was successful!"
+          print (time.strftime("%d/%m/%Y %H:%M:%S    "),"opening acc_S was successful!")
         #Array 
         acc_S_ar=acc_S.ReadAsArray()
         del (acc_S)
@@ -1790,7 +1790,7 @@ class Connectivity_gui(QtGui.QMainWindow):
         else:
             pass
         #
-        print time.strftime("%d/%m/%Y %H:%M:%S    "), "Calculation finished!, Compliments!"
+        print (time.strftime("%d/%m/%Y %H:%M:%S    "), "Calculation finished!, Compliments!")
         easygui.msgbox("Calculation finished!", title="Compliments")
         return
         #
@@ -2101,10 +2101,10 @@ class Connectivity_gui(QtGui.QMainWindow):
             if (event.type() == QtCore.QEvent.DragEnter):
                 if event.mimeData().hasUrls():
                     event.accept()   # must accept the dragEnterEvent or else the dropEvent can't occur !!!
-                    print "accept"
+                    print ("accept")
                 else:
                     event.ignore()
-                    print "ignore"
+                    print ("ignore")
             if (event.type() == QtCore.QEvent.Drop):
                 if event.mimeData().hasUrls():   # if file or link is dropped
                     urlcount = len(event.mimeData().urls())  # count number of drops
