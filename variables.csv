@@ -1,0 +1,12 @@
+prefix;id;description;type;alias1;function_input;add_info;function
+ln;1;Input DTM;TIF;;;;
+ln;2;Input Weight raster;TIF;;;;
+ln;3;Cell Size;float32;in_cs;c_s;cell size;CavalliConnectivitytg
+ln;4;Output IC raster;TIF;;;;
+ln;5;DTM for weight computation;TIF;;;;
+ln;6;Not defined;;;;;
+ln;7;Input target shapefile;SHP;;;;
+ln;8;Input sinks shapefile;SHP;;;;
+ln;9;Output W raster;TIF;;;;
+ln;10;Output RI raster;TIF;;;;
+ln;11;Kernel size;float32;in_fs;f_s;size filter;rw_cavalli
