@@ -13,4 +13,4 @@ in_cs=2
 out_w="/home/elic/fclapuyt/SedInConnect_2.3/outputs/Otemma/otemma_weight.tif"
 out_ic="/home/elic/fclapuyt/SedInConnect_2.3/outputs/Otemma/otemma_ic.tif"
 
-CavalliConnectivityout(in_dtm, in_cs, out_w, out_ic)
+CavalliConnectivityout(in_dtm, in_cs, in_dtm, out_ic)

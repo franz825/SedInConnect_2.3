@@ -33,7 +33,7 @@ COMPUTE SINKS
 --------------------------------------
 """       
 # Compute sinks
-def sinks(self, dtm_f, sink_shp):
+def sinks(dtm_f, sink_shp):
     #
     filename = dtm_f.replace('\\','/')
     filename = str(filename)
@@ -162,7 +162,7 @@ def sinks(self, dtm_f, sink_shp):
     #DOING THE PROCEDURE
     #Let's go for the search and algo-rhytm for the weighted-Flow-Length
     #
-    start = time.clock()#take your time
+    start = time.time.time()#take your time
     #
     print (msg_sk)
     #
@@ -235,7 +235,7 @@ def sinks(self, dtm_f, sink_shp):
     XC8.extend(X[D8])
     SK_m[YC8,XC8]=big_wat_sink[YC8,XC8]#initialize basin code at cells draining to Basin Code
     #
-    #start =clock()#da cancellare poi.....!!!!!! Solo per check
+    #start =time.time()#da cancellare poi.....!!!!!! Solo per check
     count=1# "0" passage already done during the previous step
     while len (YC1) or len(YC2) or len(YC3) or len(YC4) or len(YC5) or len(YC6) or len(YC7) or len(YC8) >0:
         #Converting into array to be able to do operations
@@ -348,7 +348,7 @@ def sinks(self, dtm_f, sink_shp):
         count=count+1
     #
     #
-    elapsed=(clock()-start)#computational time
+    elapsed=(time.time()-start)#computational time
     print(time.strftime("%d/%m/%Y %H:%M:%S    "),"Process concluded succesfully \n","%.2f" % elapsed,'seconds for sink watersheds calculation with ',int(count),' iterations') #truncating the precision
     #os.system("pause")
     #
@@ -428,7 +428,7 @@ CAVALLI ROUGHNESS FUNCTION
 --------------------------------------
 """
 # Roughness index calculation
-def rw_cavalli(self, dtm_r, f_s, ri_out, w_out, sk_flag = 0):
+def rw_cavalli(dtm_r, f_s, ri_out, w_out, sk_flag = 0):
     filename = dtm_r.replace('\\','/')
     filename = str(filename)
     tif = osgeo.gdal.Open(filename)#opening the file (1 band, bit not specified, but usually 32)
@@ -466,7 +466,7 @@ def rw_cavalli(self, dtm_r, f_s, ri_out, w_out, sk_flag = 0):
     #kernel size
     size_filter = numpy.float32(int(f_s))#importante che resti float32, per omogeneita'
     #
-    start =clock()#take the time
+    start =time.time()#take the time
     #
     I_ar_p = numpy.ones((rows,cols), dtype=tipo) #matrice di numeri uno e zero sui nodata da usare per far la media poi
     I_ar_p[numpy.isnan(I_ar)==1] = 0
@@ -547,7 +547,7 @@ def rw_cavalli(self, dtm_r, f_s, ri_out, w_out, sk_flag = 0):
     #
     maxr = float(Ri[numpy.isnan(Ri) == False].max())#max element in surface roughness
     #Mr = maxr + 0.001#increase a bit, in this release, old style of standardization
-    if self.normseba.isChecked():
+    if normseba.isChecked():
         #
         # minima in Roughness set to 0.001
         Ri[numpy.where(Ri < 0.001)] = 0.001
@@ -583,7 +583,7 @@ CONNECTIVITY TO THE OUTLET
 ###########################################################################
 --------------------------------------
 """        
-def CavalliConnectivityout (self, dtm_f, c_s, w_f, out_ic, sink_flag = 0):#I will flag sink_are to 1 in case I need to retrieve the fdir_8 from the sink analysis    
+def CavalliConnectivityout (dtm_f, c_s, w_f, out_ic, sink_flag = 0):#I will flag sink_are to 1 in case I need to retrieve the fdir_8 from the sink analysis    
     
     filename=dtm_f.replace('\\','/')
     filename=str(filename)
@@ -756,7 +756,7 @@ def CavalliConnectivityout (self, dtm_f, c_s, w_f, out_ic, sink_flag = 0):#I wil
     Wgt=numpy.zeros(shape=((Wg.shape[0])+1,(Wg.shape[1])+1),dtype=numpy.float32)
     Wgt[:Wgt.shape[0]-1,:Wgt.shape[1]-1] = Wg
     #
-    start =clock()#for computational time
+    start =time.time()#for computational time
     #Creating a bigger matrix as large as weight(and all the matrices) to store the weighted flow length values
     W_Fl=numpy.zeros(shape=((Wgt.shape[0]),(Wgt.shape[1])),dtype=numpy.float32)
     W_Fl=W_Fl-1#to give -1 to NoData after the while loop calculation
@@ -829,7 +829,7 @@ def CavalliConnectivityout (self, dtm_f, c_s, w_f, out_ic, sink_flag = 0):#I wil
     XC8.extend(X[D8])
     W_Fl[YC8,XC8]=0#initialize flow length at cells draining to NoData
     #
-    #start =clock()#da cancellare poi.....!!!!!! Solo per check
+    #start =time.time()#da cancellare poi.....!!!!!! Solo per check
     count=1# "0" passage already done during the previous step
     while len (YC1) or len(YC2) or len(YC3) or len(YC4) or len(YC5) or len(YC6) or len(YC7) or len(YC8) >0:
         #Converting into array to be able to do operations
@@ -956,7 +956,7 @@ def CavalliConnectivityout (self, dtm_f, c_s, w_f, out_ic, sink_flag = 0):#I wil
         count=count+1
     #
     #
-    elapsed=(clock()-start)#computational time
+    elapsed=(time.time()-start)#computational time
     print (time.strftime("%d/%m/%Y %H:%M:%S    "), "Process concluded succesfully \n","%.2f" % elapsed,'seconds for Weighted-Flow Length calculation with ',int(count),' iterations') #truncating the precision
     #os.system("pause")
     #
@@ -1080,7 +1080,7 @@ def CavalliConnectivityout (self, dtm_f, c_s, w_f, out_ic, sink_flag = 0):#I wil
     ic_ar=numpy.log10(D_up_ar/D_down_ar)
     #
     #saving upslope and downslope components if reqiured, filename is fixed
-    if self.updown.isChecked():
+    if updown.isChecked():
         upsl_comp = gdal.GetDriverByName('GTiff').Create((dir_path+"/D_up.tif"), const_ar.shape[1], const_ar.shape[0], 1, GDT_Float32)#shape sono righe e colonne, 1 è il numero di bande
         upsl_comp.SetGeoTransform(geoinf)#conferisco coordinate e proiezione del raster in input
         upsl_comp.SetProjection(proj)
@@ -1135,7 +1135,7 @@ CONNECTIVITY TO TARGETS
 ###########################################################################
 --------------------------------------
 """
-def CavalliConnectivitytg (self, dtm_f, c_s, tg_f, w_f, out_ic_tg, sink_flag_tg = 0):
+def CavalliConnectivitytg (dtm_f, c_s, tg_f, w_f, out_ic_tg, sink_flag_tg = 0):
      #
      #file selection
      #
@@ -1322,7 +1322,7 @@ def CavalliConnectivitytg (self, dtm_f, c_s, tg_f, w_f, out_ic_tg, sink_flag_tg 
     #Trying to do a weighted flow length, USING FLOW DIR MATRIX, that removes the border cells
     #addind top row and left column with zeros
     #
-    start =clock()#for computational time
+    start =time.time()#for computational time
     #
     #zero matrix bigger than F_dir8, to avoid border indexing problems
     Fd8 = numpy.zeros(shape=((tif_fdir8_ar.shape[0])+1,(tif_fdir8_ar.shape[1])+1),dtype=numpy.float32)
@@ -1411,7 +1411,7 @@ def CavalliConnectivitytg (self, dtm_f, c_s, tg_f, w_f, out_ic_tg, sink_flag_tg 
     XC8.extend(X[D8])
     W_Fl[YC8,XC8]=0#initialize flow length at cells draining to NoData
     #
-    #start =clock()#da cancellare poi.....!!!!!! Solo per check
+    #start =time.time()#da cancellare poi.....!!!!!! Solo per check
     count=1# "0" passage already done during the previous step
     while len (YC1) or len(YC2) or len(YC3) or len(YC4) or len(YC5) or len(YC6) or len(YC7) or len(YC8) >0:
         #Converting into array to be able to do operations
@@ -1537,7 +1537,7 @@ def CavalliConnectivitytg (self, dtm_f, c_s, tg_f, w_f, out_ic_tg, sink_flag_tg 
         count=count+1
     #
     #
-    elapsed=(clock()-start)#computational time
+    elapsed=(time.time()-start)#computational time
     print (time.strftime("%d/%m/%Y %H:%M:%S    "), "Process concluded succesfully \n","%.2f" % elapsed,'seconds for Weighted-Flow Length calculation with ',int(count),' iterations') #truncating the precision
     #os.system("pause")
     #
@@ -1632,7 +1632,7 @@ def CavalliConnectivitytg (self, dtm_f, c_s, tg_f, w_f, out_ic_tg, sink_flag_tg 
     #ic_ar[ic_ar==0]=numpy.nan#setting NoData values, maybe incorrect for occurrences within the matrix
     #
     #saving upslope and downslope components if reqiured, filename is fixed
-    if self.updown.isChecked():
+    if updown.isChecked():
         upsl_comp = gdal.GetDriverByName('GTiff').Create((dir_path+"/D_up.tif"), const_ar.shape[1], const_ar.shape[0], 1, GDT_Float32)#shape sono righe e colonne, 1 è il numero di bande
         upsl_comp.SetGeoTransform(geoinf)#conferisco coordinate e proiezione del raster in input
         upsl_comp.SetProjection(proj)
