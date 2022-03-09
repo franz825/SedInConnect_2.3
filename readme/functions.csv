@@ -1,0 +1,5 @@
+function;description;param_1;param_2;param_3;param_4;param_5;param_6
+sinks;Create sinks features (sediment traps);dtm_f;sink_shp;;;;
+rw_cavalli;Cavalli Roughness index;dtm_r;f_s;ri_out;w_out;sk_flag;
+CavalliConnectivityout;Connectivity to the outlet;dtm_f;c_s;w_f;out_ic;sink_flag;
+CavalliConnectivitytg;Connectivity to targets;dtm_f;c_s;tg_f;w_f;out_ic_tg;sink_flag_tg

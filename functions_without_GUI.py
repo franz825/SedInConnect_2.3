@@ -20,7 +20,7 @@ import threading
 import gdal_rasterize as poly2ras
 import base64
 import scipy.signal
-from scipy.special 
+from scipy.special import _ufuncs_cxx #this for dependencies, otherwise pyinstaller does not find _ufuncs_cxx trying to create scipy dll
 import matplotlib.pyplot
 
 """
