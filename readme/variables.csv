@@ -5,7 +5,7 @@ ln;3;Cell Size;float32;in_cs;c_s;cell size;CavalliConnectivitytg
 ln;4;Output IC raster;TIF;;;;
 ln;5;DTM for weight computation;TIF;;;;
 ln;6;Not defined;;;;;
-ln;7;Input target shapefile;SHP;;;;
+ln;7;Input target shapefile;SHP;in_tg;;;
 ln;8;Input sinks shapefile;SHP;;;;
 ln;9;Output W raster;TIF;;;;
 ln;10;Output RI raster;TIF;;;;
