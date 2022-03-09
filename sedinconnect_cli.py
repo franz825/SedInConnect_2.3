@@ -3,7 +3,7 @@
 """
 Created on Tue Mar  8 13:45:31 2022
 
-@author: franz
+@author: François Clapuyt
 """
 
 import sys, os
