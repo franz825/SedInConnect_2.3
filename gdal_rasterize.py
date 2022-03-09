@@ -99,8 +99,9 @@ def rasterize(src,dst,update=False,
 
     #Open the vector layer to rasterize from
     src_ds = ogr.Open(src)
-    if not src_ds: raise RuntimeError,'\'%s\' does not exist in the file system.' % src
-    if sql:src_lyr=ds.ExecuteSQL(sql)
+    if not src_ds: 
+        raise RuntimeError('%s does not exist in the file system.' % src)
+    if sql:src_lyr=src_ds.ExecuteSQL(sql)
     else:
         src_lyr=src_ds.GetLayer()
         if where:src_lyr.SetAttributeFilter(where)
@@ -155,15 +156,15 @@ def rasterize(src,dst,update=False,
                                   out_gt, out_srs, datatype=datatype, nodata=nodata,
                                   init=init)
         else:
-            raise RuntimeError, '%s does not exist and neither a prototype raster nor appropriate options were specified!'%dst
+            raise RuntimeError('%s does not exist and neither a prototype raster nor appropriate options were specified!'%dst)
 
         if dst_driver  is None:
             try:dst_driver = gdal.GetDriverByName(out_format)
-            except:raise RuntimeError,'Format driver %s not found, pick a supported driver.' % out_format
+            except:raise RuntimeError('Format driver %s not found, pick a supported driver.' % out_format)
 
     err = gdal.RasterizeLayer(dstds, [1], src_lyr, **kwargs)
     if err != 0:
-        raise RuntimeError,  "error rasterizing layer: %s" % err
+        raise RuntimeError("error rasterizing layer: %s" % err)
     if not update:
         dstds=dst_driver.CreateCopy(dst,dstds, 1, co)
         try:
@@ -196,12 +197,12 @@ if __name__ == '__main__':
             elif arg == '-burn':
                 kwargs['burn_values']=[int(args.pop(0))]
             elif arg == '-a':
-                if kwargs.has_key(options):kwargs['options'].append()
+                if kwargs.has_key('options'):kwargs['options'].append()
                 else:kwargs['options']=['ATTRIBUTE=%s'%args.pop(0)]
             elif arg == '-a_srs':
                 kwargs['out_srs']=args.pop(0)
             elif arg == '-co':
-                if kwargs.has_key(co):kwargs['co'].append(args.pop(0))
+                if kwargs.has_key('co'):kwargs['co'].append(args.pop(0))
                 else:kwargs['co']=[args.pop(0)]
             elif arg == '-a_nodata':
                 kwargs['nodata']=args.pop(0)
@@ -221,7 +222,7 @@ if __name__ == '__main__':
                 kwargs['working_format']=args.pop(0)
             else:raise Exception
     except:
-        print >> sys.stderr,__doc__
+        print(file=sys.stderr)
         sys.exit(1)
 
     dstds=rasterize(str(src) ,str(dst),  **kwargs)
