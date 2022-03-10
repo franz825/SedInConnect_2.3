@@ -13,15 +13,15 @@ import osgeo
 from osgeo import gdal, ogr
 import numpy
 import math
-import struct
 import shutil
 from osgeo.gdal import *
-import threading
 import gdal_rasterize as poly2ras
-import base64
 import scipy.signal
 from scipy.special import _ufuncs_cxx #this for dependencies, otherwise pyinstaller does not find _ufuncs_cxx trying to create scipy dll
-import matplotlib.pyplot
+# import matplotlib.pyplot
+# import struct
+# import threading
+# import base64
 
 """
 --------------------------------------
@@ -1114,14 +1114,14 @@ def CavalliConnectivityout (dtm_f, c_s, w_f, out_ic, sink_flag = 0):#I will flag
     print (time.strftime("%d/%m/%Y %H:%M:%S    "), "Calculation finished!, Compliments!")
     #END?....YUPPY!!!!!
     #
-    # Figure
-    imgplot = matplotlib.pyplot.imshow(ic_ar)
-    imgplot.set_cmap('Paired')
-    matplotlib.pyplot.colorbar()
-    matplotlib.pyplot.xlabel('x', fontsize=18)
-    matplotlib.pyplot.ylabel('y', fontsize=18)
-    matplotlib.pyplot.suptitle('Connectivity output map', fontsize=18)
-    matplotlib.pyplot.show()
+    # # Figure
+    # imgplot = matplotlib.pyplot.imshow(ic_ar)
+    # imgplot.set_cmap('Paired')
+    # matplotlib.pyplot.colorbar()
+    # matplotlib.pyplot.xlabel('x', fontsize=18)
+    # matplotlib.pyplot.ylabel('y', fontsize=18)
+    # matplotlib.pyplot.suptitle('Connectivity output map', fontsize=18)
+    # matplotlib.pyplot.show()
     
     # easygui.msgbox("Calculation finished!", title="Compliments")
     return   
@@ -1667,35 +1667,35 @@ def CavalliConnectivitytg (dtm_f, c_s, tg_f, w_f, out_ic_tg, sink_flag_tg = 0):
     dst_ic_ds=None#Sometimes I add this to ensure the file is fully deallocated, and to prevent running into some gotchas:
     del dst_ic_ds
     #
-    # Figure
-    imgplot = matplotlib.pyplot.figure(1)
-    matplotlib.pyplot.imshow(ic_ar)
-    matplotlib.pyplot.set_cmap('Paired')
-    matplotlib.pyplot.colorbar()
-    matplotlib.pyplot.xlabel('x', fontsize=18)
-    matplotlib.pyplot.ylabel('y', fontsize=18)
-    matplotlib.pyplot.suptitle('Connectivity output map', fontsize=18)
-    matplotlib.pyplot.show()
-    #
-    # Figure_2
-    dist_data = ic_ar[numpy.isnan(ic_ar)==False]
-    #
-    imgplot = matplotlib.pyplot.figure(2)
-    matplotlib.pyplot.hist(dist_data, bins=150, normed=True)
-    matplotlib.pyplot.grid()
-    matplotlib.pyplot.xlabel('IC values', fontsize=18)
-    matplotlib.pyplot.ylabel('F', fontsize=18)
-    matplotlib.pyplot.suptitle('Distribution and values', fontsize=18)
-    mu = dist_data.mean()
-    median = numpy.median(dist_data)
-    sigma = dist_data.std()
-    min_data = dist_data.min()
-    max_data = dist_data.max()
-    textstr = '$min=%.4f$\n$max=%.4f$\n$\mu=%.4f$\n$\mathrm{median}=%.4f$\n$\sigma=%.4f$'%(min_data,max_data,mu, median, sigma)
-    props = dict(boxstyle='round', facecolor='wheat', alpha=0.5)
-    matplotlib.pyplot.text(0.45, 0.45, textstr,  fontsize=14,
-            verticalalignment='top', bbox=props)
-    matplotlib.pyplot.show()
+    # # Figure
+    # imgplot = matplotlib.pyplot.figure(1)
+    # matplotlib.pyplot.imshow(ic_ar)
+    # matplotlib.pyplot.set_cmap('Paired')
+    # matplotlib.pyplot.colorbar()
+    # matplotlib.pyplot.xlabel('x', fontsize=18)
+    # matplotlib.pyplot.ylabel('y', fontsize=18)
+    # matplotlib.pyplot.suptitle('Connectivity output map', fontsize=18)
+    # matplotlib.pyplot.show()
+    # #
+    # # Figure_2
+    # dist_data = ic_ar[numpy.isnan(ic_ar)==False]
+    # #
+    # imgplot = matplotlib.pyplot.figure(2)
+    # matplotlib.pyplot.hist(dist_data, bins=150, normed=True)
+    # matplotlib.pyplot.grid()
+    # matplotlib.pyplot.xlabel('IC values', fontsize=18)
+    # matplotlib.pyplot.ylabel('F', fontsize=18)
+    # matplotlib.pyplot.suptitle('Distribution and values', fontsize=18)
+    # mu = dist_data.mean()
+    # median = numpy.median(dist_data)
+    # sigma = dist_data.std()
+    # min_data = dist_data.min()
+    # max_data = dist_data.max()
+    # textstr = '$min=%.4f$\n$max=%.4f$\n$\mu=%.4f$\n$\mathrm{median}=%.4f$\n$\sigma=%.4f$'%(min_data,max_data,mu, median, sigma)
+    # props = dict(boxstyle='round', facecolor='wheat', alpha=0.5)
+    # matplotlib.pyplot.text(0.45, 0.45, textstr,  fontsize=14,
+    #         verticalalignment='top', bbox=props)
+    # matplotlib.pyplot.show()
     #
     #Some cleanings removing taudem created files
     os.remove(dir_path+"/accS.tif")
