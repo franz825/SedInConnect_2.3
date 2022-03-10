@@ -1020,7 +1020,7 @@ def CavalliConnectivityout (dtm_f, c_s, w_f, out_ic, sink_flag = 0):#I will flag
     del(acc_W)
     #
     #Calculating accS-->Dinf contributing area wrigthed with D8 slope value
-    os.system("mpiexec -n 8 AreaDinf -ang "+filename[0:-4]+"ang.tif"+ " -sca " +dir_path+"/accS.tif -wg "+filename[0:-4]+'s.tif'+" -nc")#windows case
+    # os.system("mpiexec -n 8 AreaDinf -ang "+filename[0:-4]+"ang.tif"+ " -sca " +dir_path+"/accS.tif -wg "+filename[0:-4]+'s.tif'+" -nc")#windows case
     os.system((("mpiexec -n 8 AreaDinf -ang ").lower())+filename[0:-4]+"ang.tif"+ " -sca " +dir_path+"/accS.tif -wg "+filename[0:-4]+'s.tif'+" -nc")#unix case
     #
     acc_S=osgeo.gdal.Open(dir_path+"/accS.tif")#opening the file (1 band, bit not specified, but usually 32)

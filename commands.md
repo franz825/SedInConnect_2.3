@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
+
+# -_- coding: utf-8 -_-
+
 """
-Created on Wed Mar  9 14:38:24 2022
+Created on Wed Mar 9 14:38:24 2022
 
 @author: François Clapuyt
 """
@@ -15,9 +17,8 @@ out_ic="/home/elic/fclapuyt/SedInConnect_2.3/outputs/Otemma/otemma_ic.tif"
 
 CavalliConnectivityout(in_dtm, in_cs, in_dtm, out_ic)
 
-
 ```bash
- [Mar/09] fclapuyt@pelican 15:29:33 ~/SedInConnect_2.3 22 > python -i sedinconnect_cli.py 
+ [Mar/09] fclapuyt@pelican 15:29:33 ~/SedInConnect_2.3 22 > python -i sedinconnect_cli.py
 >>> in_dtm="/home/elic/fclapuyt/SedInConnect_2.3/inputs/Otemma/Otemma_filledWL2019.tif"
 >>> in_cs=2
 >>> out_w="/home/elic/fclapuyt/SedInConnect_2.3/outputs/Otemma/otemma_weight.tif"
@@ -29,9 +30,9 @@ Input file /home/elic/fclapuyt/SedInConnect_2.3/inputs/Otemma/Otemma_filledWL201
 Nodata value input to create partition from file: -99999.000000
 Nodata value recast to float used in partition raster: -99999.000000
 This run may take on the order of 11 minutes to complete.
-This estimate is very approximate. 
-Run time is highly uncertain as it depends on the complexity of the input data 
-and speed and memory of the computer. This estimate is based on our testing on 
+This estimate is very approximate.
+Run time is highly uncertain as it depends on the complexity of the input data
+and speed and memory of the computer. This estimate is based on our testing on
 a dual quad core Dell Xeon E5405 2.0GHz PC with 16GB RAM.
 All slopes evaluated. 0 flats to resolve.
 Processors: 8
@@ -48,9 +49,9 @@ Input file /home/elic/fclapuyt/SedInConnect_2.3/inputs/Otemma/Otemma_filledWL201
 Nodata value input to create partition from file: -99999.000000
 Nodata value recast to float used in partition raster: -99999.000000
 This run may take on the order of 11 minutes to complete.
-This estimate is very approximate. 
-Run time is highly uncertain as it depends on the complexity of the input data 
-and speed and memory of the computer. This estimate is based on our testing on 
+This estimate is very approximate.
+Run time is highly uncertain as it depends on the complexity of the input data
+and speed and memory of the computer. This estimate is based on our testing on
 a dual quad core Dell Xeon E5405 2.0GHz PC with 16GB RAM.
 All slopes evaluated. 0 flats to resolve.
 Processors: 8
@@ -66,9 +67,9 @@ Total time: 156.749316
 AreaD8 version 5.3.9
 Input file /home/elic/fclapuyt/SedInConnect_2.3/inputs/Otemma/Otemma_filledWL2019p.tif has projected coordinate system.
 This run may take on the order of 1 minutes to complete.
-This estimate is very approximate. 
-Run time is highly uncertain as it depends on the complexity of the input data 
-and speed and memory of the computer. This estimate is based on our testing on 
+This estimate is very approximate.
+Run time is highly uncertain as it depends on the complexity of the input data
+and speed and memory of the computer. This estimate is based on our testing on
 a dual quad core Dell Xeon E5405 2.0GHz PC with 16GB RAM.
 Nodata value input to create partition from file: -32768.000000
 Nodata value recast to int16_t used in partition raster: -32768
@@ -77,14 +78,14 @@ Read time: 1.902497
 Compute time: 45.694717
 Write time: 7.605200
 Total time: 55.202415
-09/03/2022 15:37:05     Process concluded succesfully 
+09/03/2022 15:37:05     Process concluded succesfully
  42.67 seconds for Weighted-Flow Length calculation with  9115  iterations
 AreaDinf version 5.3.9
 Input file /home/elic/fclapuyt/SedInConnect_2.3/inputs/Otemma/Otemma_filledWL2019ang.tif has projected coordinate system.
 This run may take on the order of 1 minutes to complete.
-This estimate is very approximate. 
-Run time is highly uncertain as it depends on the complexity of the input data 
-and speed and memory of the computer. This estimate is based on our testing on 
+This estimate is very approximate.
+Run time is highly uncertain as it depends on the complexity of the input data
+and speed and memory of the computer. This estimate is based on our testing on
 a dual quad core Dell Xeon E5405 2.0GHz PC with 16GB RAM.
 Nodata value input to create partition from file: -340282346638528859811704183484516925440.000000
 Nodata value recast to float used in partition raster: -340282346638528859811704183484516925440.000000
@@ -97,16 +98,16 @@ Total time: 237.122568
 AreaDinf version 5.3.9
 Input file /home/elic/fclapuyt/SedInConnect_2.3/inputs/Otemma/Otemma_filledWL2019ang.tif has projected coordinate system.
 This run may take on the order of 1 minutes to complete.
-This estimate is very approximate. 
-Run time is highly uncertain as it depends on the complexity of the input data 
-and speed and memory of the computer. This estimate is based on our testing on 
+This estimate is very approximate.
+Run time is highly uncertain as it depends on the complexity of the input data
+and speed and memory of the computer. This estimate is based on our testing on
 a dual quad core Dell Xeon E5405 2.0GHz PC with 16GB RAM.
 Nodata value input to create partition from file: -340282346638528859811704183484516925440.000000
 Nodata value recast to float used in partition raster: -340282346638528859811704183484516925440.000000
 Input file /home/elic/fclapuyt/SedInConnect_2.3/inputs/Otemma/Otemma_filledWL2019.tif has projected coordinate system.
 Nodata value input to create partition from file: -99999.000000
 Nodata value recast to float used in partition raster: -99999.000000
-^C09/03/2022 15:46:42     opening acc_W was successful!
+09/03/2022 15:46:42     opening acc_W was successful!
 --------------------------------------------------------------------------
 mpiexec was unable to find the specified executable file, and therefore
 did not launch the job.  This error was first reported for process
@@ -123,9 +124,9 @@ Executable: AreaDinf
 AreaDinf version 5.3.9
 Input file /home/elic/fclapuyt/SedInConnect_2.3/inputs/Otemma/Otemma_filledWL2019ang.tif has projected coordinate system.
 This run may take on the order of 1 minutes to complete.
-This estimate is very approximate. 
-Run time is highly uncertain as it depends on the complexity of the input data 
-and speed and memory of the computer. This estimate is based on our testing on 
+This estimate is very approximate.
+Run time is highly uncertain as it depends on the complexity of the input data
+and speed and memory of the computer. This estimate is based on our testing on
 a dual quad core Dell Xeon E5405 2.0GHz PC with 16GB RAM.
 Nodata value input to create partition from file: -340282346638528859811704183484516925440.000000
 Nodata value recast to float used in partition raster: -340282346638528859811704183484516925440.000000
@@ -146,7 +147,7 @@ Traceback (most recent call last):
     if updown.isChecked():
 NameError: name 'updown' is not defined
 ```
- 
+
 # Test Blinne
 
 in_dtm="/home/elic/fclapuyt/SedInConnect_2.3/inputs/blinne/blinne.tif"
@@ -157,12 +158,12 @@ out_ic="/home/elic/fclapuyt/SedInConnect_2.3/outputs/blinne/blinne_ic.tif"
 CavalliConnectivityout(in_dtm, in_cs, in_dtm, out_ic)
 
 ```bash
-[Mar/09] fclapuyt@pelican 16:18:30 ~/SedInConnect_2.3 30 > python -i sedinconnect_cli.py 
+[Mar/09] fclapuyt@pelican 16:18:30 ~/SedInConnect_2.3 30 > python -i sedinconnect_cli.py
 >>> in_dtm="/home/elic/fclapuyt/SedInConnect_2.3/inputs/blinne/blinne.tif"
 >>> in_cs=2
 >>> out_w="/home/elic/fclapuyt/SedInConnect_2.3/outputs/blinne/blinne_weight.tif"
 >>> out_ic="/home/elic/fclapuyt/SedInConnect_2.3/outputs/blinne/blinne_ic.tif"
->>> 
+>>>
 >>> CavalliConnectivityout(in_dtm, in_cs, in_dtm, out_ic)
 09/03/2022 16:19:00     opening DTM for Connectivity was successful!
 D8FlowDir version 5.3.9
@@ -170,9 +171,9 @@ Input file /home/elic/fclapuyt/SedInConnect_2.3/inputs/blinne/blinne.tif has pro
 Nodata value input to create partition from file: -99999.000000
 Nodata value recast to float used in partition raster: -99999.000000
 This run may take on the order of 1 minutes to complete.
-This estimate is very approximate. 
-Run time is highly uncertain as it depends on the complexity of the input data 
-and speed and memory of the computer. This estimate is based on our testing on 
+This estimate is very approximate.
+Run time is highly uncertain as it depends on the complexity of the input data
+and speed and memory of the computer. This estimate is based on our testing on
 a dual quad core Dell Xeon E5405 2.0GHz PC with 16GB RAM.
 All slopes evaluated. 0 flats to resolve.
 Processors: 8
@@ -189,9 +190,9 @@ Input file /home/elic/fclapuyt/SedInConnect_2.3/inputs/blinne/blinne.tif has pro
 Nodata value input to create partition from file: -99999.000000
 Nodata value recast to float used in partition raster: -99999.000000
 This run may take on the order of 1 minutes to complete.
-This estimate is very approximate. 
-Run time is highly uncertain as it depends on the complexity of the input data 
-and speed and memory of the computer. This estimate is based on our testing on 
+This estimate is very approximate.
+Run time is highly uncertain as it depends on the complexity of the input data
+and speed and memory of the computer. This estimate is based on our testing on
 a dual quad core Dell Xeon E5405 2.0GHz PC with 16GB RAM.
 All slopes evaluated. 0 flats to resolve.
 Processors: 8
@@ -207,9 +208,9 @@ Total time: 1.613417
 AreaD8 version 5.3.9
 Input file /home/elic/fclapuyt/SedInConnect_2.3/inputs/blinne/blinnep.tif has projected coordinate system.
 This run may take on the order of 1 minutes to complete.
-This estimate is very approximate. 
-Run time is highly uncertain as it depends on the complexity of the input data 
-and speed and memory of the computer. This estimate is based on our testing on 
+This estimate is very approximate.
+Run time is highly uncertain as it depends on the complexity of the input data
+and speed and memory of the computer. This estimate is based on our testing on
 a dual quad core Dell Xeon E5405 2.0GHz PC with 16GB RAM.
 Nodata value input to create partition from file: -32768.000000
 Nodata value recast to int16_t used in partition raster: -32768
@@ -218,14 +219,14 @@ Read time: 0.402601
 Compute time: 0.402819
 Write time: 0.106808
 Total time: 0.912228
-09/03/2022 16:19:11     Process concluded succesfully 
+09/03/2022 16:19:11     Process concluded succesfully
  0.16 seconds for Weighted-Flow Length calculation with  275  iterations
 AreaDinf version 5.3.9
 Input file /home/elic/fclapuyt/SedInConnect_2.3/inputs/blinne/blinneang.tif has projected coordinate system.
 This run may take on the order of 1 minutes to complete.
-This estimate is very approximate. 
-Run time is highly uncertain as it depends on the complexity of the input data 
-and speed and memory of the computer. This estimate is based on our testing on 
+This estimate is very approximate.
+Run time is highly uncertain as it depends on the complexity of the input data
+and speed and memory of the computer. This estimate is based on our testing on
 a dual quad core Dell Xeon E5405 2.0GHz PC with 16GB RAM.
 Nodata value input to create partition from file: -340282346638528859811704183484516925440.000000
 Nodata value recast to float used in partition raster: -340282346638528859811704183484516925440.000000
@@ -238,9 +239,9 @@ Total time: 1.138743
 AreaDinf version 5.3.9
 Input file /home/elic/fclapuyt/SedInConnect_2.3/inputs/blinne/blinneang.tif has projected coordinate system.
 This run may take on the order of 1 minutes to complete.
-This estimate is very approximate. 
-Run time is highly uncertain as it depends on the complexity of the input data 
-and speed and memory of the computer. This estimate is based on our testing on 
+This estimate is very approximate.
+Run time is highly uncertain as it depends on the complexity of the input data
+and speed and memory of the computer. This estimate is based on our testing on
 a dual quad core Dell Xeon E5405 2.0GHz PC with 16GB RAM.
 Nodata value input to create partition from file: -340282346638528859811704183484516925440.000000
 Nodata value recast to float used in partition raster: -340282346638528859811704183484516925440.000000
@@ -269,9 +270,9 @@ Executable: AreaDinf
 AreaDinf version 5.3.9
 Input file /home/elic/fclapuyt/SedInConnect_2.3/inputs/blinne/blinneang.tif has projected coordinate system.
 This run may take on the order of 1 minutes to complete.
-This estimate is very approximate. 
-Run time is highly uncertain as it depends on the complexity of the input data 
-and speed and memory of the computer. This estimate is based on our testing on 
+This estimate is very approximate.
+Run time is highly uncertain as it depends on the complexity of the input data
+and speed and memory of the computer. This estimate is based on our testing on
 a dual quad core Dell Xeon E5405 2.0GHz PC with 16GB RAM.
 Nodata value input to create partition from file: -340282346638528859811704183484516925440.000000
 Nodata value recast to float used in partition raster: -340282346638528859811704183484516925440.000000
@@ -291,4 +292,3 @@ Traceback (most recent call last):
 NameError: name 'updown' is not defined
 
 ```
-
