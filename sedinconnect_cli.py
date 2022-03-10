@@ -1080,25 +1080,25 @@ def CavalliConnectivityout (dtm_f, c_s, w_f, out_ic, sink_flag = 0):#I will flag
     ic_ar=numpy.log10(D_up_ar/D_down_ar)
     #
     #saving upslope and downslope components if reqiured, filename is fixed
-    if updown.isChecked():
-        upsl_comp = gdal.GetDriverByName('GTiff').Create((dir_path+"/D_up.tif"), const_ar.shape[1], const_ar.shape[0], 1, GDT_Float32)#shape sono righe e colonne, 1 è il numero di bande
-        upsl_comp.SetGeoTransform(geoinf)#conferisco coordinate e proiezione del raster in input
-        upsl_comp.SetProjection(proj)
-        upsl_comp.GetRasterBand(1).WriteArray(D_up_ar,0,0)#scrivo effettivamente il raster, prima avevo solo allocato la memoria
-        upsl_comp=None#Sometimes I add this to ensure the file is fully deallocated, and to prevent running into some gotchas:
-        del upsl_comp
-        del D_up_ar
-        #
-        dwsl_comp = gdal.GetDriverByName('GTiff').Create((dir_path+"/D_down.tif"), const_ar.shape[1], const_ar.shape[0], 1, GDT_Float32)#shape sono righe e colonne, 1 è il numero di bande
-        dwsl_comp.SetGeoTransform(geoinf)#conferisco coordinate e proiezione del raster in input
-        dwsl_comp.SetProjection(proj)
-        dwsl_comp.GetRasterBand(1).WriteArray(D_down_ar,0,0)#scrivo effettivamente il raster, prima avevo solo allocato la memoria
-        dwsl_comp=None#Sometimes I add this to ensure the file is fully deallocated, and to prevent running into some gotchas:
-        del dwsl_comp
-        del D_down_ar
-    else:
-        del D_up_ar
-        del D_down_ar
+    # if updown.isChecked():
+    upsl_comp = gdal.GetDriverByName('GTiff').Create((dir_path+"/D_up.tif"), const_ar.shape[1], const_ar.shape[0], 1, GDT_Float32)#shape sono righe e colonne, 1 è il numero di bande
+    upsl_comp.SetGeoTransform(geoinf)#conferisco coordinate e proiezione del raster in input
+    upsl_comp.SetProjection(proj)
+    upsl_comp.GetRasterBand(1).WriteArray(D_up_ar,0,0)#scrivo effettivamente il raster, prima avevo solo allocato la memoria
+    upsl_comp=None#Sometimes I add this to ensure the file is fully deallocated, and to prevent running into some gotchas:
+    del upsl_comp
+    del D_up_ar
+    #
+    dwsl_comp = gdal.GetDriverByName('GTiff').Create((dir_path+"/D_down.tif"), const_ar.shape[1], const_ar.shape[0], 1, GDT_Float32)#shape sono righe e colonne, 1 è il numero di bande
+    dwsl_comp.SetGeoTransform(geoinf)#conferisco coordinate e proiezione del raster in input
+    dwsl_comp.SetProjection(proj)
+    dwsl_comp.GetRasterBand(1).WriteArray(D_down_ar,0,0)#scrivo effettivamente il raster, prima avevo solo allocato la memoria
+    dwsl_comp=None#Sometimes I add this to ensure the file is fully deallocated, and to prevent running into some gotchas:
+    del dwsl_comp
+    del D_down_ar
+    # else:
+    #     del D_up_ar
+    #     del D_down_ar
     #
     #Create the tiff raster of ic
     o_ic=out_ic.replace('\\','/')
@@ -1632,25 +1632,25 @@ def CavalliConnectivitytg (dtm_f, c_s, tg_f, w_f, out_ic_tg, sink_flag_tg = 0):
     #ic_ar[ic_ar==0]=numpy.nan#setting NoData values, maybe incorrect for occurrences within the matrix
     #
     #saving upslope and downslope components if reqiured, filename is fixed
-    if updown.isChecked():
-        upsl_comp = gdal.GetDriverByName('GTiff').Create((dir_path+"/D_up.tif"), const_ar.shape[1], const_ar.shape[0], 1, GDT_Float32)#shape sono righe e colonne, 1 è il numero di bande
-        upsl_comp.SetGeoTransform(geoinf)#conferisco coordinate e proiezione del raster in input
-        upsl_comp.SetProjection(proj)
-        upsl_comp.GetRasterBand(1).WriteArray(D_up_ar,0,0)#scrivo effettivamente il raster, prima avevo solo allocato la memoria
-        upsl_comp=None#Sometimes I add this to ensure the file is fully deallocated, and to prevent running into some gotchas:
-        del upsl_comp
-        del D_up_ar
-        #
-        dwsl_comp = gdal.GetDriverByName('GTiff').Create((dir_path+"/D_down.tif"), const_ar.shape[1], const_ar.shape[0], 1, GDT_Float32)#shape sono righe e colonne, 1 è il numero di bande
-        dwsl_comp.SetGeoTransform(geoinf)#conferisco coordinate e proiezione del raster in input
-        dwsl_comp.SetProjection(proj)
-        dwsl_comp.GetRasterBand(1).WriteArray(D_down_ar,0,0)#scrivo effettivamente il raster, prima avevo solo allocato la memoria
-        dwsl_comp=None#Sometimes I add this to ensure the file is fully deallocated, and to prevent running into some gotchas:
-        del dwsl_comp
-        del D_down_ar
-    else:
-        del D_up_ar
-        del D_down_ar
+    # if updown.isChecked():
+    upsl_comp = gdal.GetDriverByName('GTiff').Create((dir_path+"/D_up.tif"), const_ar.shape[1], const_ar.shape[0], 1, GDT_Float32)#shape sono righe e colonne, 1 è il numero di bande
+    upsl_comp.SetGeoTransform(geoinf)#conferisco coordinate e proiezione del raster in input
+    upsl_comp.SetProjection(proj)
+    upsl_comp.GetRasterBand(1).WriteArray(D_up_ar,0,0)#scrivo effettivamente il raster, prima avevo solo allocato la memoria
+    upsl_comp=None#Sometimes I add this to ensure the file is fully deallocated, and to prevent running into some gotchas:
+    del upsl_comp
+    del D_up_ar
+    #
+    dwsl_comp = gdal.GetDriverByName('GTiff').Create((dir_path+"/D_down.tif"), const_ar.shape[1], const_ar.shape[0], 1, GDT_Float32)#shape sono righe e colonne, 1 è il numero di bande
+    dwsl_comp.SetGeoTransform(geoinf)#conferisco coordinate e proiezione del raster in input
+    dwsl_comp.SetProjection(proj)
+    dwsl_comp.GetRasterBand(1).WriteArray(D_down_ar,0,0)#scrivo effettivamente il raster, prima avevo solo allocato la memoria
+    dwsl_comp=None#Sometimes I add this to ensure the file is fully deallocated, and to prevent running into some gotchas:
+    del dwsl_comp
+    del D_down_ar
+    # else:
+    #     del D_up_ar
+    #     del D_down_ar
     #
     #
     o_ic_tg=out_ic_tg.replace('\\','/')
